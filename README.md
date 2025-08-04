@@ -79,3 +79,58 @@ The application reads configuration from `appsettings.json` by default:
 ```
 
 Command line arguments override the settings in the JSON file. The application saves the final configuration values back to the `appsettings.json` file.
+
+## ConfigurationManager Library
+
+This project now uses a separate `ConfigurationManager` library that has been extracted from the original code. The library provides a reusable way to handle configuration and command-line arguments.
+
+### Library Features
+
+- Generic configuration processing with type safety
+- Support for multiple configuration sources with precedence
+- Command-line argument parsing with both long and short forms
+- Automatic saving of settings back to JSON files
+
+### Using the Library in Your Projects
+
+1. Add a reference to the ConfigurationManager project:
+   ```xml
+   <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj" />
+   ```
+
+2. Create a settings class that inherits from `AppSettingsBase`:
+   ```csharp
+   public class YourSettings : AppSettingsBase
+   {
+       public string SomeSetting { get; set; }
+       public int AnotherSetting { get; set; }
+       
+       public override string SectionName => "YourSettingsSection";
+       
+       public override string ToString()
+       {
+           return $"SomeSetting: {SomeSetting}, AnotherSetting: {AnotherSetting}";
+       }
+   }
+   ```
+
+3. Define command-line option mappings:
+   ```csharp
+   var optionsMap = new Dictionary<string, (string LongName, string ShortName)>
+   {
+       { "SomeSetting", ("some-setting", "s") },
+       { "AnotherSetting", ("another-setting", "a") }
+   };
+   ```
+
+4. Create and use the configuration processor:
+   ```csharp
+   var configProcessor = new ConfigurationProcessor<YourSettings>(
+       "your-settings.json",
+       optionsMap,
+       defaultSettings);
+       
+   var settings = configProcessor.ProcessConfiguration(args);
+   ```
+
+This approach allows you to easily add configuration capabilities to any application with minimal code.

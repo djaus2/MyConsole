@@ -19,7 +19,7 @@ A C# console application that demonstrates configuration management with the fol
 ## Building and Running
 
 ### Prerequisites
-- .NET 6.0 SDK or later
+- .NET 9.0 SDK or later
 
 ### Build
 ```

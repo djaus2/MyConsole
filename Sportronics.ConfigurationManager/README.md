@@ -153,6 +153,8 @@ This project is licensed under the Creative Commons Attribution 4.0 Internationa
 ## Release Notes
 
 ### v1.1.X (August 2025)
+- 1.1.4 Repository renamed so fixed link.
+- 1.1.3 Fixed issue with command line argument parsing
 - 1.1.2 Fixed repository link
 - 1.1.1 Embelished README with more detailed usage instructions
 - 1.1.0 Added support for resetting configuration to default values via command line flag `-r` or `--reset`)

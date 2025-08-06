@@ -65,34 +65,41 @@ namespace Sportronics.ConfigurationManager
             {
                 originalSettings = _settings;
             }
-            
+
+
             // Apply command line arguments first to check for flags
             if (args != null && args.Length > 0)
             {
                 ApplyCommandLineArgs(args);
                 hasCommandLineArgs = true;
-                
+
+                string[] helpArgs = { "--help", "-h", "-i", "--ignore" };
+                if (helpArgs.Contains(args[0], StringComparer.OrdinalIgnoreCase))
+                {
+                    hasCommandLineArgs = false;
+                }
                 // If help flag is set, display help and return current settings
                 if (_commandLineParser.HelpRequested)
                 {
                     DisplayHelp();
                     return null;
                 }
-                
+
                 // If reset flag is set, reset to default settings
                 if (_commandLineParser.ResetRequested)
                 {
                     Console.WriteLine("Resetting to default settings...");
                     _settings = new T();
-                    
+
                     if (saveSettings)
                     {
                         SaveSettingsToJson();
                         Console.WriteLine("Default settings saved to configuration file.");
                     }
-                    
+
                     return _settings;
                 }
+                
             }
             
             // Save command line settings to restore later

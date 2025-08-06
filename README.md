@@ -10,10 +10,16 @@ A C# console application that demonstrates configuration management with the fol
   2. appsettings.json file
 - Automatically saves the used configuration values back to appsettings.json
 
+> Configuration code is in a companion project
+
+## Projecvts
+- MyConsole: The console app
+- ConfigurationManager: The backend lib
+
 ## Building and Running
 
 ### Prerequisites
-- .NET 6.0 SDK or later
+- .NET 9.0 SDK or later
 
 ### Build
 ```
@@ -134,3 +140,61 @@ This project now uses a separate `ConfigurationManager` library that has been ex
    ```
 
 This approach allows you to easily add configuration capabilities to any application with minimal code.
+
+---
+
+This was created in 2 steps using [Windsurf](https://windsurf.com/)
+
+# Plan for Extracting Command-line/Configuration Logic to a Library
+
+## Notes
+- The user has published the MyConsole project to GitHub.
+- User requested to extract the configuration/command-line argument logic into a separate C# library project for reuse.
+- The current implementation supports both long form and short form command-line arguments for configuration.
+- We have analyzed AppSettings.cs and Program.cs to identify extractable logic (argument processing, config loading, settings persistence).
+- The user has created the ConfigurationManager library project and installed required NuGet packages.
+- The core library classes (AppSettingsBase, CommandLineParser, ConfigurationProcessor) have been implemented in the ConfigurationManager project.
+- MyConsole now references the ConfigurationManager library and uses it for configuration/command-line logic.
+
+## Task List
+- [x] Confirm current command-line/configuration implementation in MyConsole
+- [x] Add documentation to README about argument usage
+- [x] Publish project to GitHub
+- [x] Plan and create a new C# class library project for configuration logic
+- [x] Refactor shared logic from MyConsole into the new library
+- [x] Reference and use the new library in MyConsole
+- [x] Update documentation (README) to reflect library usage
+
+## Current Goal
+Project complete
+
+
+Great! We've successfully completed all the tasks for extracting the configuration functionality into a separate library. Here's a summary of what we've accomplished:
+1.	Created a new 
+ConfigurationManager
+ library project with three main classes:
+•	AppSettingsBase
+: A base class for settings objects
+•	CommandLineParser
+: Handles parsing command-line arguments in both long and short forms
+•	ConfigurationProcessor
+: Core class for loading, processing, and saving configuration
+2.	Updated the 
+MyConsole
+ project to use the new library:
+•	Modified 
+AppSettings.cs to inherit from 
+AppSettingsBase
+•	Simplified 
+Program.cs to use the 
+ConfigurationProcessor
+•	Added a project reference to the 
+ConfigurationManager
+ library
+3.	Updated the README.md with documentation on how to use the new library in other projects
+The refactored code is now more maintainable, reusable, and follows better separation of concerns. The 
+ConfigurationManager
+ library can be used in any C# application that needs configuration management with command-line argument support.
+Would you like me to explain any specific part of the implementation in more detail?
+
+

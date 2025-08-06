@@ -4,3 +4,11 @@
 
 /.vs
 /ConfigurationManager/obj
+/Sportronics.ConfigurationManager/bin/Release/au.com.sportronics.DjsConfigurationManager.1.0.0.nupkg
+/Sportronics.ConfigurationManager/bin/Release/Sportronics.ConfigurationManager.1.0.2.nupkg
+/Sportronics.ConfigurationManager/bin/Release/Sportronics.ConfigurationManager.1.0.3.nupkg
+/Sportronics.ConfigurationManager/bin/Release/sportronics.DjsConfigurationManager.1.0.0.nupkg
+/Sportronics.ConfigurationManager/bin/Release/Sportronics.DjsConfigurationManager.1.0.1.nupkg
+/Sportronics.ConfigurationManager/obj
+/Sportronics.ConfigurationManager/bin
+/Sportronics.ConfigurationManager/Nuget.txt

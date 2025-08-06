@@ -151,9 +151,9 @@ When the help flag is used, the `ProcessConfiguration` method will return `null`
 This project is licensed under the Creative Commons Attribution 4.0 International License - see the LICENSE file for details.
 
 ## Release Notes
-
+****
 ### v1.1.X (August 2025)
-- 1.1.4 Repository renamed so fixed link.
+- 1.1.5 Repository renamed so fixed link.
 - 1.1.3 Fixed issue with command line argument parsing
 - 1.1.2 Fixed repository link
 - 1.1.1 Embelished README with more detailed usage instructions

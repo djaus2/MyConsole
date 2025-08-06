@@ -17,10 +17,10 @@ namespace MyConsole
             //Optional in-app
             defaultSettings = new AppSettings
             {
-                Folder = "C:\\DefaultFolder",
-                Port = 8080
+                Folder = @"c:\Temp\ABC\Inapp",
+                Port = 7000
             };
-;
+            
             
             // Define command line options mapping
             var optionsMap = new Dictionary<string, (string LongName, string ShortName)>

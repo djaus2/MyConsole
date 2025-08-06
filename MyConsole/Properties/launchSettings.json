@@ -1,7 +1,8 @@
 {
   "profiles": {
     "MyConsole": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": " -f c:\\qwerty -p 2345"
     }
   }
 }

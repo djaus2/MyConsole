@@ -12,11 +12,13 @@ A C# console application that demonstrates configuration management with the fol
 
 > Configuration code is in a companion project
 
-## Projecvts
+## Projects
 - MyConsole: The console app
-- ConfigurationManager: The backend lib
+- Sportronics.ConfigurationManager: The backend lib
 
 ## Building and Running
+
+# See Readme in Sportronics.ConfigurationManager for latest details on usage
 
 ### Prerequisites
 - .NET 9.0 SDK or later

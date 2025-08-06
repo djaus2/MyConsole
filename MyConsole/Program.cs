@@ -1,4 +1,4 @@
-using ConfigurationManager;
+using Sportronics.ConfigurationManager;
 using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
@@ -11,15 +11,16 @@ namespace MyConsole
         static void Main(string[] args)
         {
             Console.WriteLine("Starting application...");
-            
-            // Default settings (lowest priority)
-            var defaultSettings = new AppSettings
+            AppSettings? defaultSettings = null;
+
+
+            //Optional in-app
+            defaultSettings = new AppSettings
             {
                 Folder = "C:\\DefaultFolder",
                 Port = 8080
             };
-            
-            Console.WriteLine("Default settings: " + defaultSettings);
+;
             
             // Define command line options mapping
             var optionsMap = new Dictionary<string, (string LongName, string ShortName)>
@@ -37,11 +38,16 @@ namespace MyConsole
             // Process configuration from all sources
             if (args.Length > 0)
             {
+                if (!((args[0].Equals("--help", StringComparison.OrdinalIgnoreCase))||
+                        (args[0].Equals("-h", StringComparison.OrdinalIgnoreCase))))
                 Console.WriteLine("Command line arguments detected: " + string.Join(" ", args));
             }
-            
+            // Set to false to use in-app settings instead
             var appSettings = configProcessor.ProcessConfiguration(args);
-            
+            if(appSettings == null)
+            {
+                return;
+            }
             // Final settings after all sources have been applied
             Console.WriteLine("\nFinal Application Settings:");
             Console.WriteLine(appSettings);

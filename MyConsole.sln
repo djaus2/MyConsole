@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyConsole", ".\MyConsole/MyConsole.csproj", "{F819DB5A-27ED-D66D-31FB-B77E1671B9F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyConsole", "MyConsole\MyConsole.csproj", "{F819DB5A-27ED-D66D-31FB-B77E1671B9F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", ".\ConfigurationManager\ConfigurationManager.csproj", "{580757A1-9514-4F99-BAE4-3C661F10912F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sportronics.ConfigurationManager", "Sportronics.ConfigurationManager\Sportronics.ConfigurationManager.csproj", "{D81ADF05-426B-FA4E-2301-FF6545FE1964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{F819DB5A-27ED-D66D-31FB-B77E1671B9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F819DB5A-27ED-D66D-31FB-B77E1671B9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F819DB5A-27ED-D66D-31FB-B77E1671B9F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{580757A1-9514-4F99-BAE4-3C661F10912F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{580757A1-9514-4F99-BAE4-3C661F10912F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{580757A1-9514-4F99-BAE4-3C661F10912F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{580757A1-9514-4F99-BAE4-3C661F10912F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81ADF05-426B-FA4E-2301-FF6545FE1964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81ADF05-426B-FA4E-2301-FF6545FE1964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81ADF05-426B-FA4E-2301-FF6545FE1964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81ADF05-426B-FA4E-2301-FF6545FE1964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

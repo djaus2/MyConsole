@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationId>au.com.sportronics.MyConsole</ApplicationId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj" />
+    <ProjectReference Include="..\Sportronics.ConfigurationManager\Sportronics.ConfigurationManager.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ConfigurationManager
+namespace Sportronics.ConfigurationManager
 {
     /// <summary>
     /// Handles parsing of command line arguments in both long and short forms
@@ -10,6 +10,21 @@ namespace ConfigurationManager
     public class CommandLineParser
     {
         private readonly Dictionary<string, CommandLineOption> _options = new Dictionary<string, CommandLineOption>();
+        
+        /// <summary>
+        /// Flag indicating if the reset option was specified in the command line arguments
+        /// </summary>
+        public bool ResetRequested { get; private set; }
+        
+        /// <summary>
+        /// Flag indicating if stored settings should be ignored (use in-app settings instead)
+        /// </summary>
+        public bool IgnoreStoredSettings { get; private set; }
+        
+        /// <summary>
+        /// Flag indicating if help information was requested
+        /// </summary>
+        public bool HelpRequested { get; private set; }
         
         /// <summary>
         /// Adds a command line option with both long and short forms
@@ -40,11 +55,38 @@ namespace ConfigurationManager
         public string[] ProcessArgs(string[] args)
         {
             List<string> configArgs = new List<string>();
+            ResetRequested = false;
+            IgnoreStoredSettings = false;
+            HelpRequested = false;
             
             for (int i = 0; i < args.Length; i++)
             {
                 string arg = args[i];
                 bool processed = false;
+                
+                // Check for help flag
+                if (arg == "-h" || arg == "--help")
+                {
+                    HelpRequested = true;
+                    processed = true;
+                    continue;
+                }
+                
+                // Check for reset flag
+                if (arg == "-r" || arg == "--reset")
+                {
+                    ResetRequested = true;
+                    processed = true;
+                    continue;
+                }
+                
+                // Check for ignore stored settings flag
+                if (arg == "-i" || arg == "--ignore")
+                {
+                    IgnoreStoredSettings = true;
+                    processed = true;
+                    continue;
+                }
                 
                 // Handle arguments with equals sign (--option=value or -o=value)
                 if (arg.Contains("="))
@@ -89,6 +131,8 @@ namespace ConfigurationManager
         /// <param name="optionsMap">Dictionary mapping property names to option names</param>
         public void RegisterOptionsFromClass<T>(T instance, Dictionary<string, (string LongName, string ShortName)> optionsMap) where T : AppSettingsBase
         {
+            if (instance == null)
+                return;
             string sectionName = instance.SectionName;
             Type type = typeof(T);
             

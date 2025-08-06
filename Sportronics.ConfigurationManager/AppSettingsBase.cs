@@ -1,6 +1,6 @@
 using System;
 
-namespace ConfigurationManager
+namespace Sportronics.ConfigurationManager
 {
     /// <summary>
     /// Base class for application settings classes
